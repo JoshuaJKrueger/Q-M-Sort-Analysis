@@ -1,0 +1,20 @@
+Add zyBooks basic ops
+Generate Data
+- Use 2^k list sizes
+Generate Graphs & Explain
+- Timing
+- Big-O
+- Basic ops
+
+Questions To Answer
+- Which is faster? why?
+- Which has less basic ops? why?
+- Were our estimates accurate? why or why not?
+- Do proof & show work for worst case quick sort
+- - See rubric for details
+
+OPTIONAL
+- Explain how to improve estimates (doing = extra points; more points for graphs)
+- Show why ... see reqs
+
+

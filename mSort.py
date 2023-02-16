@@ -1,5 +1,3 @@
-
-
 def mergeSort(a):
     n = len(a)
 
@@ -23,6 +21,7 @@ def merge(a, b, c):
     k = 0
 
     while j < m and k < n - m:
+        ops += 1
         if (b[j] <= c[k]):
             a[i] = b[j]
             j += 1
@@ -40,3 +39,7 @@ def merge(a, b, c):
         a[i] = c[k]
         i += 1
         k += 1
+
+
+#worst
+#2*log_2(n) -n+1

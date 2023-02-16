@@ -1,53 +1,53 @@
-# TODO:
-#     Create merge sort with modifiable params
-#     Create qsort sort with modifiable params
-#     Choose params we want to analyze
-#     Choose basic ops and stay consistent in both
-#     Add runtime timing
-#     Look at repeats
-#     Assess timing
-#     Assess Big-O
-#     Assess basic ops
-#    display correlations between n and basic operations, n and run times, n and estimated run times.
-#.   use (a) empirical evidence and (b) sufficient analysis
+Implementation:
+Using pivot as params
+
+TODO:
+    Choose basic ops and stay consistent in both
+
+    Look at repeats
+    Assess timing
+    Assess Big-O
+    Assess basic ops
+   display correlations between n and basic operations, n and run times, n and estimated run times.
+.   use (a) empirical evidence and (b) sufficient analysis
 
 
-#     Questions to answer:
-#     (50 points) Using the code that you wrote and tested for MergeSort and QuickSort,  run both algorithms using random data of various sizes of n = 2^k, k an integer greater than or equal to 10. 
-#     (50 points) Which is generally faster (QuickSort or MergeSort)?
-#         Why (remember why means compare both sides of the proverbial coin)?
-#     (25 points) Which generally has less basic operations?  Why?
-#     (50 points) Were your estimated times consistent (meaning
-#         is the actual time close to and does it follow roughly the same
-#         time deltas as the actual time did)?  Why or why not?
+    Questions to answer:
+    (50 points) Using the code that you wrote and tested for MergeSort and QuickSort,  run both algorithms using random data of various sizes of n = 2^k, k an integer greater than or equal to 10. 
+    (50 points) Which is generally faster (QuickSort or MergeSort)?
+        Why (remember why means compare both sides of the proverbial coin)?
+    (25 points) Which generally has less basic operations?  Why?
+    (50 points) Were your estimated times consistent (meaning
+        is the actual time close to and does it follow roughly the same
+        time deltas as the actual time did)?  Why or why not?
 
 
-#     (75 points) Please also pick ONE of the recurrence relations
-#         that you programmed for Merge/QuickSort (best of time
-#         complexities or worst of time complexities), use the
-#         recurrence relation to create a candidate solution.
-#         Then use induction to prove the candidate solution satisfies
-#         the recurrence relation with the given initial constraint.
-#         Don't forget:
-#             (a) write the recurrence relation,
-#             (b) explain if there are any limitations on n (such as n a power of 3),
-#             (c) explain why the initial constraint is that value,
-#             (d) prove the base case,
-#             (e) assume it's true
-#             (f) prove it's true for n+1, 2n, etc. by altering the left and right
-#                 sides until they are equivalent, (f) QED or thus we see and state
-#                 the recurrence equals the candidate solution.  Good luck!
+    (75 points) Please also pick ONE of the recurrence relations
+        that you programmed for Merge/QuickSort (best of time
+        complexities or worst of time complexities), use the
+        recurrence relation to create a candidate solution.
+        Then use induction to prove the candidate solution satisfies
+        the recurrence relation with the given initial constraint.
+        Don't forget:
+            (a) write the recurrence relation,
+            (b) explain if there are any limitations on n (such as n a power of 3),
+            (c) explain why the initial constraint is that value,
+            (d) prove the base case,
+            (e) assume it's true
+            (f) prove it's true for n+1, 2n, etc. by altering the left and right
+                sides until they are equivalent, (f) QED or thus we see and state
+                the recurrence equals the candidate solution.  Good luck!
 
 
-#     Extra credit (up to 25 Points).
-#     What could you do or did you do to improve the estimates?
-#         More points awarded for doing rather than just saying.
-#         Again, although you can have two tables with big-O estimates
-#         (the first like we did in class based strictly off of the big-O
-#         and a second table outlining what you did differently to
-#         get better estimates), you will get more points for graphically
-#         showing your results.  What are the lessons learned?  Show deep learning.
+    Extra credit (up to 25 Points).
+    What could you do or did you do to improve the estimates?
+        More points awarded for doing rather than just saying.
+        Again, although you can have two tables with big-O estimates
+        (the first like we did in class based strictly off of the big-O
+        and a second table outlining what you did differently to
+        get better estimates), you will get more points for graphically
+        showing your results.  What are the lessons learned?  Show deep learning.
 
-#     (Part of the 25 extra credit points, continued)
-#     In addition to the minimum induction that you are required to prove, show why,
-#         using summations that the worst case for MergeSort or the best case for QuickSort, is the candidate solution.
+    (Part of the 25 extra credit points, continued)
+    In addition to the minimum induction that you are required to prove, show why,
+        using summations that the worst case for MergeSort or the best case for QuickSort, is the candidate solution.
