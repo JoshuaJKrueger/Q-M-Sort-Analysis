@@ -1,14 +1,14 @@
 from math import floor
 from random import uniform
 
-RNG_RANGE = (0, 1000) #Domain of RNG
-RNG_CUSTOM_DOMAIN = [1, 2, 3] #Options for constrained lists
+DEFAULT_LOW = 0
+DEFAULT_HIGH = 100
 
-def genNum(low:int=RNG_RANGE[0], upp:int=RNG_RANGE[1]) ->int:
+def genNum(low:int=DEFAULT_LOW, upp:int=DEFAULT_HIGH) ->int:
     '''Generate a random number within [low, upp]'''
     return uniform(low,upp)
 
-def genList(count: int, low:int=RNG_RANGE[0], upp:int=RNG_RANGE[1]) ->list:
+def genList(count: int, low:int=DEFAULT_LOW, upp:int=DEFAULT_HIGH) ->list:
     '''Generate a list of random numbers within [low, upp]'''
     out = []
     for _ in range(count):

@@ -8,7 +8,8 @@ from time import perf_counter as timer
 
 DEBUG = True
 LIST_LEN_RANGE = (5, 6) #Range of exponents to consider (2^exp) #LOW MUST BE GREATER THAN OR EQUAL TO 10
-
+RNG_RANGE = (0, 1000) #Domain of RNG
+RNG_CUSTOM_DOMAIN = [1, 2, 3] #Options for constrained lists
 
 def runTest(f, lst:list, isMerge:bool=False, tag:str=None) -> float:
     '''Record and return the time it takes to complete the sorting algorithm function'''
@@ -30,12 +31,12 @@ def main():
     #Calculate list lengths
     list_lengths = []
     for i in range(LIST_LEN_RANGE[0], LIST_LEN_RANGE[1]+1):
-        list_lengths.append(2**i)
+        list_lengths.append(1<<i)
     
     #Generate lists and constrained lists
     lists = []
     for lst_len in list_lengths:
-        lists.append(genList(lst_len))
+        lists.append(genList(lst_len, RNG_RANGE[0], RNG_RANGE[1]))
     
     constrained_lists = []
     for lst_len in list_lengths:
