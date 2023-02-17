@@ -21,7 +21,7 @@ def merge(a, b, c):
     k = 0
 
     while j < m and k < n - m:
-        ops += 1
+        # ops += 1
         if (b[j] <= c[k]):
             a[i] = b[j]
             j += 1
