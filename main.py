@@ -30,7 +30,7 @@ def genRandListFromList(count:int, lst:list) ->list:
             out.append(getRandFromList(lst))
     return out
 
-def runTest(f, listLen:int=10, range:tuple=(0, 10), isMerge:bool=False, useList:list=None) -> float:
+def runTest(f, listLen:int=10, range:tuple=(0, 10), isMerge:bool=False, useList:list=None, tag:str=None) -> float:
     '''Record and return the time it takes to complete the sorting algorithm function'''
 
     a = None
@@ -48,17 +48,27 @@ def runTest(f, listLen:int=10, range:tuple=(0, 10), isMerge:bool=False, useList:
 
     if DEBUG: #Output results
         sort_title = 'Merge' if isMerge else 'Quick'
-        print(f'{sort_title} sort time: {res}')
+        tag_text = f"[{tag}] " if tag else ''
+        print(f'{tag_text}{sort_title} sort time: {res}')
 
     return res #Return timer result (seconds)
 
 def main():
-    runTest(mergeSort, 1024, isMerge=True)
-    runTest(mergeSort, 1024, isMerge=True, useList=[1, 2, 3])
-    runTest(quickSort_H, 1024)
-    runTest(quickSort_H, 1024, useList=[1, 2, 3])
-    runTest(quickSort_L, 1024)
-    runTest(quickSort_L, 1024, useList=[1, 2, 3])
+    low, upp = 10, 15
+
+    print("# Mergesort")
+    for e in range(low, upp):
+        runTest(mergeSort, 2**e, isMerge=True)
+    print()
+
+    print("# Quicksort (High)")
+    for e in range(low, upp):
+        runTest(quickSort_H, 2**e)
+    print()
+
+    print("# Quicksort (Low)")
+    for e in range(low, upp):
+        runTest(quickSort_L, 2**e)
 
 
 if __name__ == '__main__':
