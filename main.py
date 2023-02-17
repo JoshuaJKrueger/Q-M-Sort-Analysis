@@ -1,37 +1,14 @@
 from qSortHigh import quickSort as quickSort_H
 from qSortLow import quickSort as quickSort_L
 from mSort import mergeSort
+from rand_logic import *
 
-from math import floor
 from time import perf_counter as timer
-from random import uniform
+
 
 DEBUG = True
 LIST_LEN_RANGE = (5, 6) #Range of exponents to consider (2^exp) #LOW MUST BE GREATER THAN OR EQUAL TO 10
-RNG_RANGE = (0, 1000) #Domain of RNG
-RNG_CUSTOM_DOMAIN = [1, 2, 3] #Options for constrained lists
 
-def genNum(low:int=RNG_RANGE[0], upp:int=RNG_RANGE[1]) ->int:
-    '''Generate a random number within [low, upp]'''
-    return uniform(low,upp)
-
-def genList(count: int, low:int=RNG_RANGE[0], upp:int=RNG_RANGE[1]) ->list:
-    '''Generate a list of random numbers within [low, upp]'''
-    out = []
-    for _ in range(count):
-        out.append(genNum(low, upp))
-    return out
-
-def getRandFromList(l:list) ->list:
-    '''Return a random element from the provided list'''
-    return l[floor(uniform(0, len(l)))]
-
-def genRandListFromList(count:int, lst:list) ->list:
-    '''Generate a list of elements randomly selected from another list'''
-    out = []
-    for _ in range(count):
-            out.append(getRandFromList(lst))
-    return out
 
 def runTest(f, lst:list, isMerge:bool=False, tag:str=None) -> float:
     '''Record and return the time it takes to complete the sorting algorithm function'''
