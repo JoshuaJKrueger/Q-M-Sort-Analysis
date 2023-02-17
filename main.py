@@ -8,6 +8,8 @@ import sys
 import csv
 
 DEBUG = True
+
+TEST_ITERATIONS = 10 #Sample size
 LIST_LEN_RANGE = (10, 11) #Range of exponents to consider (2^exp) #LOW MUST BE GREATER THAN OR EQUAL TO 10
 RNG_RANGE = (0, 1000) #Domain of RNG
 RNG_CUSTOM_DOMAIN = [1, 2, 3] #Options for constrained lists
@@ -57,24 +59,17 @@ def main():
     #Run tests
     test_count = len(list_lengths)
     test_range = range(test_count)
-    print()
-    print("# Mergesort")
-    for i in test_range:
-        runTest(mergeSort, lists[i], isMerge=True, tag=f"_|{list_lengths[i]}", export=True, exportKey="Mergesort")
-        runTest(mergeSort, constrained_lists[i], isMerge=True, tag=f"C|{list_lengths[i]}", export=True, exportKey="Mergesort_C")
-    print()
 
-    print("# Quicksort (High)")
-    for i in test_range:
-        runTest(quickSort_H, lists[i], tag=f"_|{list_lengths[i]}", export=True, exportKey="Quicksort-H")
-        runTest(quickSort_H, constrained_lists[i], tag=f"C|{list_lengths[i]}", export=True, exportKey="Quicksort-H_C")
-    print()
-
-    print("# Quicksort (Low)")
-    for i in test_range:
-        runTest(quickSort_L, lists[i], tag=f"_|{list_lengths[i]}", export=True, exportKey="Quicksort-L")
-        runTest(quickSort_L, constrained_lists[i], tag=f"C|{list_lengths[i]}", export=True, exportKey="Quicksort-L_C")
-    print()
+    for i in range(TEST_ITERATIONS):
+        for j in test_range:
+            runTest(mergeSort, lists[j], isMerge=True, tag=f"_|{list_lengths[j]}", export=True, exportKey=f"Mergesort_{i}_{j+LIST_LEN_RANGE[0]}")
+            runTest(mergeSort, constrained_lists[j], isMerge=True, tag=f"C|{list_lengths[j]}", export=True, exportKey=f"Mergesort_C_{i}_{j+LIST_LEN_RANGE[0]}")
+        for j in test_range:
+            runTest(quickSort_H, lists[j], tag=f"_|{list_lengths[j]}", export=True, exportKey=f"Quicksort-H_{i}_{j+LIST_LEN_RANGE[0]}")
+            runTest(quickSort_H, constrained_lists[j], tag=f"C|{list_lengths[j]}", export=True, exportKey=f"Quicksort-H_C_{i}_{j+LIST_LEN_RANGE[0]}")
+        for j in test_range:
+            runTest(quickSort_L, lists[j], tag=f"_|{list_lengths[j]}", export=True, exportKey=f"Quicksort-L_{i}_{j+LIST_LEN_RANGE[0]}")
+            runTest(quickSort_L, constrained_lists[j], tag=f"C|{list_lengths[j]}", export=True, exportKey=f"Quicksort-L_C_{i}_{j+LIST_LEN_RANGE[0]}")
 
 
 if __name__ == '__main__':
