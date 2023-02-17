@@ -1,17 +1,24 @@
+depth = 0
+ops = 0
 
 def quickSort(listToSort, low, high):
+    global depth
+    depth+=1
     if low>=high: return
 
     pivot = partition(listToSort, low, high)
     quickSort(listToSort, low, pivot)
     quickSort(listToSort, pivot+1, high)
+    return depth, ops
 
 def partition(a, low, high):
+    global ops
     p = a[low]
     p_i = low
     j = low
     i = low+1
     while i<=high:
+        ops+=1
         if a[i]<p:
             a[i],a[j] = a[j],a[i]
             if p_i==j:

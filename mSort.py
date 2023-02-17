@@ -1,4 +1,9 @@
+depth = 0
+ops = 0
+
 def mergeSort(a):
+    global depth
+    depth+=1
     n = len(a)
 
     if (n == 1):
@@ -11,9 +16,11 @@ def mergeSort(a):
     mergeSort(b)
     mergeSort(c)
     merge(a, b, c)
+    return depth, ops
 
 
 def merge(a, b, c):
+    global ops
     n = len(a)
     m = n // 2
     i = 0
@@ -21,7 +28,7 @@ def merge(a, b, c):
     k = 0
 
     while j < m and k < n - m:
-        # ops += 1
+        ops += 1
         if (b[j] <= c[k]):
             a[i] = b[j]
             j += 1
