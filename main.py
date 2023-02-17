@@ -5,6 +5,7 @@ from rand_logic import *
 
 from time import perf_counter as timer
 import sys
+import csv
 
 DEBUG = True
 LIST_LEN_RANGE = (10, 11) #Range of exponents to consider (2^exp) #LOW MUST BE GREATER THAN OR EQUAL TO 10
@@ -78,5 +79,20 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    if DEBUG: #Output results
+        for k, v in results.items():
+            print(f"{k}: {v}")
+    
+    #Reformat results
+    out_results = []
     for k, v in results.items():
-        print(k,v)
+        v["tag"] = k
+        out_results.append(v)
+    
+    #Export results
+    column_headers = ["tag", "time", "depth", "ops"]
+    with open("results.csv", "w", newline='') as f:
+        w = csv.DictWriter(f, column_headers)
+        w.writeheader()
+        w.writerows(out_results)
