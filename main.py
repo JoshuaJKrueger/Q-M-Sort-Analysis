@@ -69,14 +69,19 @@ def main():
         if DEBUG: print("# MergeSort")
         for j in range(TEST_ITERATIONS):
             runTest(mergeSort, lst, isMerge=True, tag=f"_|{lst_len}", export=True, exportKey=f"Mergesort_{exp}_{j}")
+        for j in range(TEST_ITERATIONS):
             runTest(mergeSort, lst_c, isMerge=True, tag=f"C|{lst_len}", export=True, exportKey=f"Mergesort_C_{exp}_{j}")
+
         if DEBUG: print("# Quicksort (High)")
         for j in range(TEST_ITERATIONS):
             runTest(quickSort_H, lst, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-H_{i}_{exp}_{j}")
+        for j in range(TEST_ITERATIONS):
             runTest(quickSort_H, lst_c, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-H_C_{i}_{exp}_{j}")
+            
         if DEBUG: print("# Quicksort (Low)")
         for j in range(TEST_ITERATIONS):
             runTest(quickSort_L, lst, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-L_{i}_{exp}_{j}")
+        for j in range(TEST_ITERATIONS):
             runTest(quickSort_L, lst_c, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-L_C_{i}_{exp}_{j}")
 
 
