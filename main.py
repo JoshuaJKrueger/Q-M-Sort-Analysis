@@ -6,6 +6,7 @@ from rand_logic import *
 from time import perf_counter as timer
 import sys
 import csv
+import copy
 
 DEBUG = True
 LOG_OUTPUT = False
@@ -66,23 +67,30 @@ def main():
         lst_c = constrained_lists[i]
         lst_len = list_lengths[i]
         exp = i+LIST_LEN_RANGE[0]
+
         if DEBUG: print("# MergeSort")
-        for j in range(TEST_ITERATIONS):
-            runTest(mergeSort, lst, isMerge=True, tag=f"_|{lst_len}", export=True, exportKey=f"Mergesort_{exp}_{j}")
-        for j in range(TEST_ITERATIONS):
-            runTest(mergeSort, lst_c, isMerge=True, tag=f"C|{lst_len}", export=True, exportKey=f"Mergesort_C_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst)
+            runTest(mergeSort, l, isMerge=True, tag=f"_|{lst_len}", export=True, exportKey=f"Mergesort_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst_c)
+            runTest(mergeSort, l, isMerge=True, tag=f"C|{lst_len}", export=True, exportKey=f"Mergesort_C_{exp}_{j}")
 
         if DEBUG: print("# Quicksort (High)")
-        for j in range(TEST_ITERATIONS):
-            runTest(quickSort_H, lst, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-H_{i}_{exp}_{j}")
-        for j in range(TEST_ITERATIONS):
-            runTest(quickSort_H, lst_c, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-H_C_{i}_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst)
+            runTest(quickSort_H, l, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-H_{i}_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst_c)
+            runTest(quickSort_H, l, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-H_C_{i}_{exp}_{j}")
             
         if DEBUG: print("# Quicksort (Low)")
-        for j in range(TEST_ITERATIONS):
-            runTest(quickSort_L, lst, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-L_{i}_{exp}_{j}")
-        for j in range(TEST_ITERATIONS):
-            runTest(quickSort_L, lst_c, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-L_C_{i}_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst)
+            runTest(quickSort_L, l, tag=f"_|{lst_len}", export=True, exportKey=f"Quicksort-L_{i}_{exp}_{j}")
+        for j in iter_range:
+            l = copy.copy(lst_c)
+            runTest(quickSort_L, l, tag=f"C|{lst_len}", export=True, exportKey=f"Quicksort-L_C_{i}_{exp}_{j}")
 
 
 if __name__ == '__main__':
