@@ -1,6 +1,5 @@
-Add zyBooks basic ops
-Generate Data
-- Use 2^k list sizes
+
+
 Generate Graphs & Explain
 - Timing
 - Big-O

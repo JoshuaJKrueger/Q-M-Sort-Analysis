@@ -1,22 +1,18 @@
-depth = 0
-ops = 0
+def quickSort(lst, low, high, ret):
+    ret['calls']+=1
 
-def quickSort(lst, low, high):
-    global depth
-    depth+=1
     if low < high:
-        piv = partition(lst, low, high)
-        quickSort(lst, low, piv - 1)
-        quickSort(lst, piv + 1, high)
-    return depth, ops
+        piv = partition(lst, low, high, ret)
+        quickSort(lst, low, piv - 1, ret)
+        quickSort(lst, piv + 1, high, ret)
+    return ret
 
-def partition(lst, low, high):
-    global ops
+def partition(lst, low, high, ret):
     piv = lst[high]
     i = low - 1
 
     for j in range(low, high):
-        ops+=1
+        ret['ops']+=1
         if lst[j] <= piv:
             i += 1
             lst[i],lst[j] = lst[j],lst[i]

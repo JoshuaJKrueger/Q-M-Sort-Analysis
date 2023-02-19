@@ -1,10 +1,8 @@
-depth = 0
-ops = 0
 
-def mergeSort(a):
-    global depth
-    depth+=1
+def mergeSort(a, ref=None):
     n = len(a)
+    if ref is not None:
+        ref["calls"]+=1
 
     if (n == 1):
         return
@@ -13,14 +11,12 @@ def mergeSort(a):
     b = a[:m]
     c = a[m:]
 
-    mergeSort(b)
-    mergeSort(c)
-    merge(a, b, c)
-    return depth, ops
+    mergeSort(b, ref=ref)
+    mergeSort(c, ref=ref)
+    merge(a, b, c, ref=ref)
 
 
-def merge(a, b, c):
-    global ops
+def merge(a, b, c, ref=None):
     n = len(a)
     m = n // 2
     i = 0
@@ -28,7 +24,9 @@ def merge(a, b, c):
     k = 0
 
     while j < m and k < n - m:
-        ops += 1
+        if ref is not None:
+            ref["ops"]+=1
+        
         if (b[j] <= c[k]):
             a[i] = b[j]
             j += 1
